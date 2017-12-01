@@ -1,4 +1,4 @@
-version: '2'
+version: '3.4'
 services:
   nginx-proxy:
     image: jwilder/nginx-proxy:alpine
@@ -10,6 +10,7 @@ services:
       - /var/run/docker.sock:/tmp/docker.sock:ro
       - ./nginx_custom.conf:/etc/nginx/conf.d/nginx_custom.conf:ro
     networks:
-      - front
+      - proxy_front
 networks:
-  front:
+  proxy_front:
+    external: true
